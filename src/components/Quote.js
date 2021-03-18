@@ -1,0 +1,63 @@
+import React, { useEffect, useState } from "react";
+import "../css/Quote.css";
+import { getWithExpiry, setWithExpiry } from "../helper/expiry";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+
+const Quote = () => {
+  const [qod, setQod] = useState(null);
+  const likedValue = localStorage.getItem("liked") === "true";
+  console.log(likedValue);
+  const [liked, setLiked] = useState(likedValue);
+
+  const toggleLiked = () => {
+    setLiked(!liked);
+    localStorage.setItem("liked", !liked);
+  };
+
+  useEffect(() => {
+    console.log(liked);
+  }, [liked]);
+
+  useEffect(() => {
+    fetch("https://favqs.com/api/qotd")
+      .then((data) => data.json())
+      .then((res) => {
+        const alreadyQuote = getWithExpiry("quote");
+        if (alreadyQuote === null) {
+          localStorage.setItem("liked", false);
+          setWithExpiry("quote", res.quote, 86400000);
+          setQod(res.quote);
+        } else {
+          setQod(alreadyQuote);
+        }
+      })
+      .catch((err) => console.error(err.message));
+  }, []);
+
+  return (
+    <div className="quote">
+      <div className="quote__main">
+        <h3>"{qod?.body}"</h3>
+        <h4>
+          {qod?.author}
+          {liked ? (
+            <FavoriteIcon
+              onClick={toggleLiked}
+              style={{ marginLeft: "3px" }}
+              fontSize="small"
+            />
+          ) : (
+            <FavoriteBorderIcon
+              onClick={toggleLiked}
+              style={{ marginLeft: "3px" }}
+              fontSize="small"
+            />
+          )}
+        </h4>
+      </div>
+    </div>
+  );
+};
+
+export default Quote;

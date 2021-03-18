@@ -3,6 +3,7 @@
   height: 8vh;
   position: fixed;
   bottom: 0;
+  z-index: 2;
 }
 
 .quote__main {

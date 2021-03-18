@@ -7,17 +7,12 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 const Quote = () => {
   const [qod, setQod] = useState(null);
   const likedValue = localStorage.getItem("liked") === "true";
-  console.log(likedValue);
   const [liked, setLiked] = useState(likedValue);
 
   const toggleLiked = () => {
     setLiked(!liked);
     localStorage.setItem("liked", !liked);
   };
-
-  useEffect(() => {
-    console.log(liked);
-  }, [liked]);
 
   useEffect(() => {
     fetch("https://favqs.com/api/qotd")

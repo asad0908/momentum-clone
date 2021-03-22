@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../css/Time.css";
 
 const Time = () => {
-  const [is24Hours, setIs24Hours] = useState(true);
+  const [is24Hours, setIs24Hours] = useState(false);
   const [currentTime, setCurrentTime] = useState(
     moment().format(`${is24Hours ? "H:mm" : "h:mm"}`)
   );
@@ -11,9 +11,9 @@ const Time = () => {
 
   setInterval(() => {
     setCurrentTime(moment().format(`${is24Hours ? "H:mm" : "h:mm"}`));
-    if (moment().format("HH") >= 12 && moment().format("HH") <= 17) {
+    if (moment().format("HH") >= 12 && moment().format("HH") <= 16) {
       setDayPart("afternoon");
-    } else if (moment().format("HH") >= 18 && moment().format("HH") <= 23) {
+    } else if (moment().format("HH") >= 17 && moment().format("HH") <= 23) {
       setDayPart("evening");
     } else if (moment().format("HH") >= 0 && moment().format("HH") <= 5) {
       setDayPart("night");

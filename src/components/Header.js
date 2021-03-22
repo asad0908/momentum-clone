@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "../css/Header.css";
 import SearchIcon from "@material-ui/icons/Search";
+import Temp from "./Temp";
 
 const Header = () => {
   const searchInputRef = useRef(null);
@@ -40,7 +41,7 @@ const Header = () => {
         </div>
       </div>
       <div className="header__right">
-        <h1>Temp</h1>
+        <Temp />
       </div>
     </div>
   );

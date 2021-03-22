@@ -1,0 +1,24 @@
+.temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.temp__down p {
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.temp__svg img {
+  filter: invert();
+  width: 30px;
+  margin-right: 5px;
+  margin-top: 3px;
+}
+
+.temp__up {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

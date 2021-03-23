@@ -13,6 +13,7 @@
   margin-top: 10px;
   color: #fff;
   font-weight: normal;
+  animation: animate 0.5s ease-in;
 }
 
 .inputTask input {
@@ -26,29 +27,33 @@
   text-align: center;
   border-bottom: 1px solid #fff;
   color: #fff;
+  animation: animate 0.5s ease-in;
 }
 
 .inputTaskCheckbox {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 10%;
+  width: 12%;
   cursor: pointer;
+  animation: animate 0.5s ease-in;
 }
 
 .inputTaskCheckbox h1 {
   color: #fff;
   font-weight: normal;
+  margin: 0 8px;
+  margin-top: 10px;
 }
 
 .checkboxBox {
-  width: 15px;
-  height: 15px;
+  width: auto;
+  height: auto;
   min-width: 15px;
   min-height: 15px;
   border: 2.5px solid #fff;
   border-radius: 2px;
-  margin-top: 8px;
+  margin-top: 11px;
 }
 
 .checkboxBoxTicked {
@@ -64,4 +69,22 @@
 .checkboxBoxTicked ~ h1 {
   text-decoration: line-through;
   opacity: 0.85;
+}
+
+.addIconButton {
+  transform: rotate(0);
+  transition: all 0.2s ease-in;
+}
+
+.addIconButtonRotated {
+  transform: rotate(45deg);
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

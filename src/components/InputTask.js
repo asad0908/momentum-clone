@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../css/InputTask.css";
 import CheckIcon from "@material-ui/icons/Check";
+import AddIcon from "@material-ui/icons/Add";
+import { IconButton } from "@material-ui/core";
 
 const InputTask = () => {
   const [taskInput, setTaskInput] = useState("");
@@ -26,10 +28,6 @@ const InputTask = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(task);
-  }, [task]);
-
   const setTaskCompleted = () => {
     const getTask = JSON.parse(localStorage.getItem("today"));
     const newTask = {
@@ -40,11 +38,17 @@ const InputTask = () => {
     setTask(newTask);
   };
 
+  const removeToday = () => {
+    localStorage.removeItem("today");
+    setTask(null);
+    setTaskInput("");
+  };
+
   return (
     <div className="inputTask">
       {task ? (
         <>
-          <h2 style={{ color: "#fff" }}>TODAY</h2>
+          <h1 style={{ color: "#fff" }}>TODAY</h1>
           <div className="inputTaskCheckbox">
             <span
               onClick={setTaskCompleted}
@@ -61,6 +65,21 @@ const InputTask = () => {
               )}
             </span>
             <h1 onClick={setTaskCompleted}>{task.t}</h1>
+            <IconButton
+              onClick={removeToday}
+              style={{ padding: "5px", marginTop: "10px", marginLeft: "-5px" }}
+            >
+              <AddIcon
+                className={`addIconButton ${
+                  task.completed === "true" ? "addIconButtonRotated" : ""
+                }`}
+                style={{
+                  fill: "#fff",
+                  opacity: "0.7",
+                  transition: "all 0.2s ease-in",
+                }}
+              />
+            </IconButton>
           </div>
         </>
       ) : (

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../css/Time.css";
 
 const Time = () => {
-  const [is24Hours, setIs24Hours] = useState(false);
+  const [is24Hours, setIs24Hours] = useState(true);
   const [currentTime, setCurrentTime] = useState(
     moment().format(`${is24Hours ? "H:mm" : "h:mm"}`)
   );

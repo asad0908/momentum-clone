@@ -22,7 +22,7 @@ const Temp = () => {
         `https://us1.locationiq.com/v1/reverse.php?key=pk.c7cbaa6bc4f11f520a67d1cf401fec65&lat=${coords.latitude}&lon=${coords.longitude}&format=json`
       )
         .then((data) => data.json())
-        .then((doc) => setAddress(doc.address.neighbourhood))
+        .then((doc) => setAddress(doc.address))
         .catch((err) => alert(err));
     }
   }, [coords]);
@@ -47,15 +47,29 @@ const Temp = () => {
 
   return (
     <div className="temp">
-      <div className="temp__up">
-        <div className="temp__svg">
-          <img src={`${temp?.summary === "Clear" && "../sun.svg"}`} alt="" />
-        </div>
-        <h1>{temp.temperature && Math.round(temp.temperature)}°</h1>
-      </div>
-      <div className="temp__down">
-        <p>{address}</p>
-      </div>
+      {coords && (
+        <>
+          <div className="temp__up">
+            <div className="temp__svg">
+              <img
+                src={`${temp?.summary === "Clear" && "../sun.svg"}`}
+                alt=""
+              />
+            </div>
+            <h1>{temp.temperature && Math.round(temp.temperature)}°</h1>
+          </div>
+          <div className="temp__down">
+            <p>
+              {address.neighbourhood ||
+                address.residential ||
+                address.state_district ||
+                address.city ||
+                address.state ||
+                address.country}
+            </p>
+          </div>
+        </>
+      )}
     </div>
   );
 };

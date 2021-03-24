@@ -3,11 +3,13 @@ import "../css/Quote.css";
 import { getWithExpiry, setWithExpiry } from "../helper/expiry";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import TodoContainer from "./TodoContainer";
 
 const Quote = () => {
   const [qod, setQod] = useState(null);
   const likedValue = localStorage.getItem("liked") === "true";
   const [liked, setLiked] = useState(likedValue);
+  const [openTodoBox, setOpenTodoBox] = useState(false);
 
   const toggleLiked = () => {
     setLiked(!liked);
@@ -50,6 +52,15 @@ const Quote = () => {
             />
           )}
         </h4>
+      </div>
+      <div className="bottom__todoContainer">
+        {openTodoBox && <TodoContainer />}
+        <p
+          onClick={() => setOpenTodoBox(!openTodoBox)}
+          className={`bottom__todo ${openTodoBox ? "bottom__todoOpened" : ""}`}
+        >
+          Todo
+        </p>
       </div>
     </div>
   );

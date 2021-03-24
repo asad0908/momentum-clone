@@ -1,0 +1,38 @@
+.todoContainer {
+  width: 300px;
+  height: 40vh;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: animateTodo 0.2s ease-in;
+}
+
+@media (max-width: 1225px) {
+  .todoContainer {
+    background: #fff;
+  }
+}
+
+@media (max-width: 600px) {
+  .todoContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@keyframes animateTodo {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

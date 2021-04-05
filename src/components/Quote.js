@@ -54,7 +54,7 @@ const Quote = () => {
         </h4>
       </div>
       <div className="bottom__todoContainer">
-        {openTodoBox && <TodoContainer />}
+        {openTodoBox && <TodoContainer setOpenTodoBox={setOpenTodoBox} />}
         <p
           onClick={() => setOpenTodoBox(!openTodoBox)}
           className={`bottom__todo ${openTodoBox ? "bottom__todoOpened" : ""}`}

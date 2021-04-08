@@ -45,6 +45,10 @@ const Temp = () => {
     }
   }, [coords]);
 
+  useEffect(() => {
+    console.log(temp);
+  }, [temp]);
+
   return (
     <div className="temp">
       {coords && (
@@ -52,7 +56,13 @@ const Temp = () => {
           <div className="temp__up">
             <div className="temp__svg">
               <img
-                src={`${temp?.summary === "Clear" && "../sun.svg"}`}
+                src={`${
+                  temp?.summary === "Clear"
+                    ? "../sun.svg"
+                    : temp?.summary === "Humid and Partly Cloudy"
+                    ? "https://firebasestorage.googleapis.com/v0/b/asadmemon0908.appspot.com/o/cloudy.svg?alt=media&token=d693ff58-ec46-4ca9-a3df-9df9d0835855"
+                    : ""
+                }`}
                 alt=""
               />
             </div>

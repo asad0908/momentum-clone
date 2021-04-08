@@ -5,6 +5,7 @@
   justify-content: center;
   z-index: 2;
   margin-top: 3%;
+  position: relative;
 }
 
 .time h1 {
@@ -20,4 +21,27 @@
   font-size: 3rem;
   color: #fff;
   font-weight: normal;
+}
+
+.time__tooltip {
+  position: absolute;
+  background-color: #fff;
+  width: 40%;
+  height: 13%;
+  left: 87%;
+  top: 54%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.time__tooltip p {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.time__tooltip p span {
+  margin-right: 10px;
 }

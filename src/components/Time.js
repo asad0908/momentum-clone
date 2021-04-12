@@ -1,26 +1,41 @@
 import moment from "moment";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/Time.css";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { IconButton } from "@material-ui/core";
 import Switch from "react-switch";
 
 const Time = () => {
-  const [is24Hours, setIs24Hours] = useState(false);
-  const [currentTime, setCurrentTime] = useState(
-    moment().format(`${is24Hours ? "H:mm" : "h:mm"}`)
+  const [is24Hours, setIs24Hours] = useState(
+    localStorage.getItem("timeState") === "true"
   );
   const [dayPart, setDayPart] = useState("");
   const [showTooltip, setShowTooltip] = useState(false);
-  const [switchStatus, setSwitchStatus] = useState(false);
+  const [switchStatus, setSwitchStatus] = useState(is24Hours);
+  const [timeValue, setTimeValue] = useState(
+    localStorage.getItem("timeState") === "true" ? "H:mm" : "h:mm"
+  );
+  const [currentTime, setCurrentTime] = useState(moment().format(timeValue));
 
   const changeSwitch = () => {
     setSwitchStatus(!switchStatus);
     setIs24Hours(!switchStatus);
+    console.log(!switchStatus);
+    localStorage.setItem("timeState", !switchStatus);
+    window.location.reload();
   };
 
+  useEffect(() => {
+    if (is24Hours) {
+      setTimeValue("H:mm");
+    } else {
+      setTimeValue("h:mm");
+    }
+  }, [is24Hours]);
+
   setInterval(() => {
-    setCurrentTime(moment().format(`${is24Hours ? "H:mm" : "h:mm"}`));
+    setCurrentTime(moment().format(timeValue));
+
     if (moment().format("HH") >= 12 && moment().format("HH") <= 16) {
       setDayPart("afternoon");
     } else if (moment().format("HH") >= 17 && moment().format("HH") <= 23) {
@@ -30,7 +45,7 @@ const Time = () => {
     } else if (moment().format("HH") >= 6 && moment().format("HH") <= 11) {
       setDayPart("morning");
     }
-  }, 1000);
+  }, 1);
 
   return (
     <div className="time">

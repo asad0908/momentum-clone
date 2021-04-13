@@ -5,7 +5,7 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { IconButton } from "@material-ui/core";
 import Switch from "react-switch";
 
-const Time = () => {
+const Time = ({ name }) => {
   const [is24Hours, setIs24Hours] = useState(
     localStorage.getItem("timeState") === "true"
   );
@@ -76,7 +76,10 @@ const Time = () => {
           </p>
         </div>
       )}
-      <h2>Good {dayPart}, Asad.</h2>
+      <h2>
+        Good {dayPart}
+        {name.length > 0 && `, ${name}`}
+      </h2>
     </div>
   );
 };

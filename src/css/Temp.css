@@ -22,3 +22,19 @@
   justify-content: space-around;
   align-items: center;
 }
+
+@media (max-width: 470px) {
+  .temp__down p {
+    font-size: 0.6rem;
+    text-align: right;
+  }
+  .mainTemp {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .temp__svg img {
+    display: none;
+  }
+}

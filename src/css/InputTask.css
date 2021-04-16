@@ -96,3 +96,12 @@
     width: 50%;
   }
 }
+
+@media (max-width: 768px) {
+  .inputTask h1 {
+    font-size: 1.8rem;
+  }
+  .inputTask input {
+    width: 70%;
+  }
+}

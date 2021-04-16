@@ -9,6 +9,8 @@
   background-repeat: no-repeat;
   font-family: "Poppins", sans-serif;
   z-index: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .app__overlay {

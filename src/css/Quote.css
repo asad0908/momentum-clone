@@ -61,3 +61,10 @@
 .bottom__todoOpened {
   opacity: 1;
 }
+
+@media (max-width: 500px) {
+  .quote__main {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}

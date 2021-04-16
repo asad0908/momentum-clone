@@ -29,7 +29,7 @@ const Temp = () => {
 
   useEffect(() => {
     if (coords?.latitude && coords?.longitude) {
-      fetch("https://am-proxy-cors.herokuapp.com/dark-sky", {
+      fetch(process.env.REACT_APP_DARK_SKY_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,9 @@ const Temp = () => {
                 alt=""
               />
             </div>
-            <h1>{temp.temperature && Math.round(temp.temperature)}°</h1>
+            <h1 className="mainTemp">
+              {temp.temperature && Math.round(temp.temperature)}°
+            </h1>
           </div>
           <div className="temp__down">
             <p>

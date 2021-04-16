@@ -66,3 +66,15 @@
     height: 11vh;
   }
 }
+
+@media (max-width: 500px) {
+  .header__search img {
+    display: none;
+  }
+  .header__searchFocused {
+    border-bottom: 2px solid #000;
+  }
+  .header__search:hover {
+    border-bottom: none;
+  }
+}

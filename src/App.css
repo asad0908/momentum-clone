@@ -3,7 +3,7 @@
 .app {
   width: 100%;
   height: 100vh;
-  background: url("https://source.unsplash.com/1200x800/daily?nature,forest,mountains,sky,sea,lakes,snow,peace,stars,rain");
+  background: url("https://source.unsplash.com/1200x800/daily?nature,forest,mountains,sky,sea,lakes,snow,peace,stars,rain,sunshine,wind,hills,moon");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,4 +21,10 @@
   left: 0;
   z-index: 1;
   background: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+  .app {
+    background: url("https://source.unsplash.com/600x800/daily?nature,forest,mountains,sky,sea,lakes,snow,peace,stars,rain,sunshine,wind,hills,moon");
+  }
 }

@@ -7,3 +7,9 @@
   align-items: center;
   flex-direction: column;
 }
+
+@media (max-width: 768px) {
+  .mainArea {
+    justify-content: flex-start;
+  }
+}

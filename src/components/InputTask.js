@@ -44,6 +44,10 @@ const InputTask = () => {
     setTaskInput("");
   };
 
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
+
   return (
     <div className="inputTask">
       {task ? (
@@ -64,7 +68,7 @@ const InputTask = () => {
                 />
               )}
             </span>
-            <h1 onClick={setTaskCompleted}>{task.t}</h1>
+            <h1 onClick={setTaskCompleted}>{truncate(task.t, 20)}</h1>
             <IconButton
               onClick={removeToday}
               style={{ padding: "5px", marginTop: "10px", marginLeft: "-5px" }}

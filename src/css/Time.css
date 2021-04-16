@@ -45,3 +45,12 @@
 .time__tooltip p span {
   margin-right: 10px;
 }
+
+@media (max-width: 768px) {
+  .time h1 {
+    font-size: 8rem;
+  }
+  .time h2 {
+    font-size: 2.5rem;
+  }
+}

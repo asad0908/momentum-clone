@@ -41,7 +41,12 @@ const Temp = () => {
       })
         .then((dod) => dod.json())
         .then((res) => setTemp(res))
-        .catch((err) => alert(err.message));
+        .catch((err) => {
+          alert("Failed to fetch temperature for your city");
+          setTemp({
+            temperature: "00",
+          });
+        });
     }
   }, [coords]);
 

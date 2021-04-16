@@ -26,5 +26,8 @@
 @media (max-width: 600px) {
   .app {
     background: url("https://source.unsplash.com/600x800/daily?nature,forest,mountains,sky,sea,lakes,snow,peace,stars,rain,sunshine,wind,hills,moon");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 }

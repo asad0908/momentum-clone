@@ -63,4 +63,22 @@
   .time h2 {
     font-size: 2rem;
   }
+  .time__tooltip {
+    width: 50%;
+    height: 25%;
+    left: 67%;
+    top: 60%;
+  }
+}
+
+@media (max-width: 460px) {
+  .time__tooltip p span {
+    font-size: 0.8rem;
+  }
+  .time__tooltip {
+    width: 55%;
+    height: 25%;
+    left: 47%;
+    top: 60%;
+  }
 }

@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     if (getWithExpiry("momentumNotification") !== 1) {
       alert(
-        "This Momentum clone is just for my portfolio and I do not own any rights for this platform, No money will be earned from this clone and it is just to showcase my react skills to the world. Loved this build! and I hope you will love it too..."
+        "This Momentum clone is just for my portfolio and I do not own any rights for this platform, No money will be earned from this clone and it is just to showcase my react skills to the world. Loved this build! and I hope you will love it too...."
       );
       setWithExpiry("momentumNotification", 1, 15 * 60 * 1000);
     }

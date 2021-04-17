@@ -16,10 +16,6 @@ const Quote = () => {
     localStorage.setItem("liked", !liked);
   };
 
-  function truncate(str, n) {
-    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-  }
-
   useEffect(() => {
     fetch("https://favqs.com/api/qotd")
       .then((data) => data.json())
@@ -39,7 +35,7 @@ const Quote = () => {
   return (
     <div className="quote">
       <div className="quote__main">
-        <h3>"{truncate(qod?.body, 20)}"</h3>
+        <h3>"{qod?.body}"</h3>
         <h4>
           {qod?.author}
           {liked ? (
